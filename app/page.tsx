@@ -25,9 +25,7 @@ export default function Home() {
       {/* Navbar */}
       <nav className="relative z-50 flex items-center justify-between px-6 md:px-16 py-5 border-b border-white/5">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-            <span className="text-white font-bold text-sm">R</span>
-          </div>
+          <img src="/logo.svg" alt="RingReply Logo" className="w-9 h-9 rounded-lg" />
           <span className="font-bold text-lg tracking-tight">RingReply</span>
         </div>
 

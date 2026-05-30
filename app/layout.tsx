@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/logo.svg",
+    apple: "/logo.svg",
+  },
   title: "RingReply — AI Receptionist for Your Business",
   description: "Never miss a call again. RingReply answers your calls 24/7, books appointments, and sends confirmations — in English and Hindi.",
   keywords: "AI receptionist, voice assistant, appointment booking, call answering, Hindi English, business automation",
