@@ -3,11 +3,16 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   icons: {
-    icon: "/logo.svg",
-    apple: "/logo.svg",
+    icon: [
+      { url: "/logo.png", type: "image/png", sizes: "512x512" },
+      { url: "/logo.png", type: "image/png", sizes: "192x192" },
+      { url: "/logo.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: "/logo.png",
+    shortcut: "/logo.png",
   },
   title: "RingReply — AI Receptionist for Your Business",
-  description: "Never miss a call again. RingReply answers your calls 24/7, books appointments, and sends confirmations — in English and Hindi.",
+  description: "Never miss a call or WhatsApp again. RingReply answers your business calls and WhatsApp messages 24/7, books appointments automatically — in English and Hindi.",
   keywords: "AI receptionist, voice assistant, appointment booking, call answering, Hindi English, business automation",
   verification: {
     google: "5ZO3ef7TBLhwr5nBbPOk2iIXVWM2IyYwLexdEp86YCk",
