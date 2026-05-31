@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     shortcut: "/logo.png",
   },
   title: "RingReply — AI Receptionist for Your Business",
-  description: "Never miss a call or WhatsApp again. RingReply answers your business calls and WhatsApp messages 24/7, books appointments automatically — in English and Hindi.",
+  description: "Never miss a call or WhatsApp message again. RingReply answers calls & WhatsApp 24/7, books appointments automatically, and sends confirmations — in English and Hindi.",
   keywords: "AI receptionist, voice assistant, appointment booking, call answering, Hindi English, business automation",
   verification: {
     google: "5ZO3ef7TBLhwr5nBbPOk2iIXVWM2IyYwLexdEp86YCk",
