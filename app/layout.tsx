@@ -24,6 +24,20 @@ export const metadata: Metadata = {
     siteName: "RingReply",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "https://ringreply.in/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "RingReply — AI Receptionist for Your Business",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RingReply — AI Receptionist for Your Business",
+    description: "Never miss a call again. RingReply answers calls 24/7, books appointments in English & Hindi.",
+    images: ["https://ringreply.in/og-image.png"],
   },
 };
 
