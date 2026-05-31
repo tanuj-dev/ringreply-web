@@ -80,18 +80,18 @@ export default function Home() {
             <span className="ping-slow absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
           </span>
-          Live — answering calls right now
+          Live — answering calls & WhatsApp messages right now
         </div>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6 max-w-4xl">
-          Never Miss a{" "}
-          <span className="gradient-text">Customer Call</span>{" "}
-          Again
+          AI Receptionist on{" "}
+          <span className="gradient-text">Call & WhatsApp</span>{" "}
+          24/7
         </h1>
 
         <p className="text-white/50 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
-          RingReply is an AI receptionist that answers your business calls 24/7,
-          books appointments, and sends SMS confirmations — in English and Hindi.
+          RingReply answers your business calls and WhatsApp messages 24/7,
+          books appointments automatically, and sends confirmations — in English and Hindi.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 items-center">
@@ -118,9 +118,11 @@ export default function Home() {
           </a>
         </div>
 
-        {/* Hero visual */}
-        <div className="mt-20 relative float-animation">
-          <div className="glass glow-indigo rounded-2xl p-6 max-w-sm mx-auto text-left">
+        {/* Hero visuals — Voice + WhatsApp side by side */}
+        <div className="mt-20 flex flex-col md:flex-row gap-6 items-center justify-center w-full max-w-3xl mx-auto">
+
+          {/* Voice card */}
+          <div className="glass glow-indigo rounded-2xl p-6 w-full max-w-sm text-left float-animation">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,18 +137,14 @@ export default function Home() {
             </div>
             <div className="space-y-2">
               {[
-                { role: "ai", text: "Hello! Welcome to Smile Dental. How can I help you today?" },
-                { role: "user", text: "I need to book an appointment for teeth cleaning" },
-                { role: "ai", text: "Sure! Which date works best for you?" },
+                { role: "ai", text: "Welcome to Smile Dental! How can I help you today?" },
+                { role: "user", text: "I need to book a teeth cleaning" },
+                { role: "ai", text: "Great! We're open Mon–Sat. Which date works?" },
               ].map((msg, i) => (
                 <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                   <div className={`rounded-xl px-3 py-2 text-xs max-w-[80%] ${
-                    msg.role === "ai"
-                      ? "bg-indigo-500/20 text-indigo-200"
-                      : "bg-white/10 text-white/80"
-                  }`}>
-                    {msg.text}
-                  </div>
+                    msg.role === "ai" ? "bg-indigo-500/20 text-indigo-200" : "bg-white/10 text-white/80"
+                  }`}>{msg.text}</div>
                 </div>
               ))}
             </div>
@@ -155,6 +153,42 @@ export default function Home() {
               <p className="text-xs text-white/40">Appointment booked · SMS sent ✓</p>
             </div>
           </div>
+
+          {/* WhatsApp card */}
+          <div className="glass rounded-2xl p-6 w-full max-w-sm text-left border border-green-500/20 float-animation" style={{ animationDelay: "0.3s" }}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
+                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.118 1.523 5.847L.057 23.882l6.196-1.623A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.869 9.869 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.86 9.86 0 012.106 12C2.106 6.579 6.579 2.106 12 2.106S21.894 6.579 21.894 12 17.421 21.894 12 21.894z"/>
+                </svg>
+              </div>
+              <div>
+                <p className="text-sm font-medium">WhatsApp Message</p>
+                <p className="text-xs text-white/40">+91 87654 32109</p>
+              </div>
+              <span className="ml-auto text-xs text-green-400 font-medium">Live</span>
+            </div>
+            <div className="space-y-2">
+              {[
+                { role: "user", text: "Hi, I want to book an appointment" },
+                { role: "ai", text: "Hey! We have Cleaning, Filling & Root Canal. Which service?" },
+                { role: "user", text: "Cleaning please, Saturday" },
+                { role: "ai", text: "Saturday works! I have 10 AM and 2 PM open. Which one?" },
+              ].map((msg, i) => (
+                <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                  <div className={`rounded-xl px-3 py-2 text-xs max-w-[80%] ${
+                    msg.role === "ai" ? "bg-green-500/20 text-green-200" : "bg-white/10 text-white/80"
+                  }`}>{msg.text}</div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-3 pt-3 border-t border-white/05 flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-green-400"></div>
+              <p className="text-xs text-white/40">Booking confirmed · Zero call needed ✓</p>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -163,9 +197,9 @@ export default function Home() {
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { value: "24/7", label: "Always available" },
-            { value: "2 min", label: "Setup time" },
+            { value: "2 channels", label: "Call + WhatsApp" },
             { value: "2 langs", label: "Hindi + English" },
-            { value: "0 miss", label: "Calls missed" },
+            { value: "0 miss", label: "Calls or chats missed" },
           ].map((stat) => (
             <div key={stat.label} className="glass rounded-xl p-5 text-center">
               <p className="text-2xl md:text-3xl font-bold gradient-text">{stat.value}</p>
@@ -227,15 +261,15 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
-              { icon: "🕐", title: "24/7 Availability", desc: "Never miss a call — nights, weekends, holidays included." },
-              { icon: "🇮🇳", title: "Hindi + English", desc: "Callers can speak in Hindi, English, or mix both freely." },
-              { icon: "📅", title: "Smart Booking", desc: "Checks real-time availability and books slots instantly." },
-              { icon: "📲", title: "SMS Confirmations", desc: "Auto-sends booking details to both customer and owner." },
-              { icon: "❌", title: "Cancellations", desc: "Handles cancellation requests without any manual work." },
+              { icon: "🕐", title: "24/7 Availability", desc: "Never miss a call or message — nights, weekends, holidays included." },
+              { icon: "💬", title: "WhatsApp Booking Bot", desc: "Customers text your WhatsApp number and the AI books their appointment automatically." },
+              { icon: "🇮🇳", title: "Hindi + English", desc: "Callers and customers can speak or type in Hindi, English, or mix both freely." },
+              { icon: "📅", title: "Smart Booking", desc: "Checks real-time availability and books slots instantly on both call and WhatsApp." },
+              { icon: "📲", title: "SMS Confirmations", desc: "Auto-sends booking details to both customer and owner after every booking." },
+              { icon: "❌", title: "Cancellations", desc: "Handles cancellation requests on call or WhatsApp without any manual work." },
               { icon: "🚨", title: "Urgency Detection", desc: "Detects emergencies and directs callers appropriately." },
-              { icon: "🏢", title: "Any Business Type", desc: "Clinics, salons, gyms, hotels — fully customizable." },
-              { icon: "📊", title: "Booking Dashboard", desc: "View all appointments in a clean online dashboard." },
-              { icon: "🔒", title: "No App Needed", desc: "Works on any phone via call forwarding. Zero setup for customers." },
+              { icon: "🏢", title: "Any Business Type", desc: "Clinics, salons, gyms, hotels — fully customizable for any vertical." },
+              { icon: "📊", title: "Booking Dashboard", desc: "View all appointments from calls and WhatsApp in one clean dashboard." },
             ].map((f) => (
               <div key={f.title} className="glass card-hover rounded-xl p-5">
                 <span className="text-2xl mb-3 block">{f.icon}</span>
@@ -295,11 +329,11 @@ export default function Home() {
               <ul className="space-y-3 mb-8">
                 {[
                   "Unlimited calls answered",
+                  "WhatsApp booking bot included",
                   "Hindi & English bilingual AI",
                   "SMS confirmations",
                   "Booking dashboard",
                   "Cancellation handling",
-                  "Works via call forwarding",
                 ].map((f) => (
                   <li key={f} className="flex items-center gap-2 text-sm text-white/70">
                     <svg className="w-4 h-4 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -331,11 +365,11 @@ export default function Home() {
               <ul className="space-y-3 mb-8">
                 {[
                   "Unlimited calls answered",
+                  "WhatsApp booking bot included",
                   "Natural English AI voice",
                   "SMS confirmations",
                   "Booking dashboard",
                   "Cancellation handling",
-                  "Works via call forwarding",
                 ].map((f) => (
                   <li key={f} className="flex items-center gap-2 text-sm text-white/70">
                     <svg className="w-4 h-4 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -362,10 +396,10 @@ export default function Home() {
       <section className="relative z-10 px-6 md:px-16 py-24">
         <div className="max-w-3xl mx-auto text-center glass rounded-3xl p-12 glow-indigo">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Ready to never miss a <span className="gradient-text">call</span>?
+            Ready to never miss a <span className="gradient-text">call or message</span>?
           </h2>
           <p className="text-white/50 mb-8 text-lg">
-            Setup takes under 5 minutes. Message us on WhatsApp and we will get you live today.
+            Setup takes under 5 minutes. Get AI on both your phone line and WhatsApp — live today.
           </p>
           <a
             href={whatsappLink()}
