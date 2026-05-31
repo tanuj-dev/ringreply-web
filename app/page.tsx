@@ -83,15 +83,24 @@ export default function Home() {
           Live — answering calls & WhatsApp messages right now
         </div>
 
+        {/* Pain point chips */}
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {["📵 Busy? Still answered.", "🌙 2 AM call? Handled.", "💬 WhatsApp at midnight? Booked.", "🇮🇳 Hindi? No problem."].map((chip) => (
+            <span key={chip} className="glass rounded-full px-4 py-1.5 text-xs text-white/60">{chip}</span>
+          ))}
+        </div>
+
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6 max-w-4xl">
-          AI Receptionist on{" "}
-          <span className="gradient-text">Call & WhatsApp</span>{" "}
-          24/7
+          Never Miss a Call{" "}
+          <span className="gradient-text">or WhatsApp</span>{" "}
+          Again
         </h1>
 
-        <p className="text-white/50 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
-          RingReply answers your business calls and WhatsApp messages 24/7,
-          books appointments automatically, and sends confirmations — in English and Hindi.
+        <p className="text-white/50 text-lg md:text-xl max-w-2xl mb-4 leading-relaxed">
+          Every missed call is a lost customer. Every unanswered WhatsApp is a booking gone to your competitor.
+        </p>
+        <p className="text-white/70 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed font-medium">
+          RingReply's AI receptionist answers <span className="text-indigo-400">calls</span> and <span className="text-green-400">WhatsApp messages</span> 24/7 — books appointments, handles cancellations, and sends confirmations. In English and Hindi. While you sleep.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 items-center">
@@ -105,7 +114,7 @@ export default function Home() {
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
               <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.118 1.523 5.847L.057 23.882l6.196-1.623A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.869 9.869 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.86 9.86 0 012.106 12C2.106 6.579 6.579 2.106 12 2.106S21.894 6.579 21.894 12 17.421 21.894 12 21.894z"/>
             </svg>
-            Get Started on WhatsApp
+            Get Started Free
           </a>
           <a
             href="#how-it-works"
@@ -117,6 +126,11 @@ export default function Home() {
             </svg>
           </a>
         </div>
+
+        {/* Trust line */}
+        <p className="mt-6 text-white/30 text-sm">
+          ✅ No app needed &nbsp;·&nbsp; ✅ Setup in 5 minutes &nbsp;·&nbsp; ✅ Works on any phone
+        </p>
 
         {/* Hero visuals — Voice + WhatsApp side by side */}
         <div className="mt-20 flex flex-col md:flex-row gap-6 items-center justify-center w-full max-w-3xl mx-auto">
