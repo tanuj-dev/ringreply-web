@@ -439,7 +439,7 @@ export default function Home() {
             </div>
             <span className="font-medium text-white/50">RingReply</span>
           </div>
-          <p>© 2025 RingReply. All rights reserved.</p>
+          <p>© 2026 RingReply. All rights reserved.</p>
           <a
             href={`mailto:hello@ringreply.in`}
             className="hover:text-white/60 transition-colors"
