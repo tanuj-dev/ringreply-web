@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import Navbar from "./components/Navbar";
+import BackgroundGlows from "./components/BackgroundGlows";
+import Footer from "./components/Footer";
 
 const WHATSAPP_NUMBER = "919319801618";
 const WHATSAPP_MESSAGE = "Hi! I'm interested in RingReply for my business. Can you tell me more?";
@@ -10,66 +12,11 @@ function whatsappLink(msg = WHATSAPP_MESSAGE) {
 }
 
 export default function Home() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white overflow-x-hidden">
 
-      {/* Background glows */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-indigo-600/10 blur-[120px]" />
-        <div className="absolute top-[40%] right-[-10%] w-[500px] h-[500px] rounded-full bg-purple-600/10 blur-[120px]" />
-        <div className="absolute bottom-[-10%] left-[30%] w-[400px] h-[400px] rounded-full bg-cyan-600/08 blur-[100px]" />
-      </div>
-
-      {/* Navbar */}
-      <nav className="relative z-50 flex items-center justify-between px-6 md:px-16 py-5 border-b border-white/5">
-        <div className="flex items-center gap-2">
-          <img src="/logo.svg" alt="RingReply Logo" className="w-9 h-9 rounded-lg" />
-          <span className="font-bold text-lg tracking-tight">RingReply</span>
-        </div>
-
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8 text-sm text-white/60">
-          <a href="#how-it-works" className="hover:text-white transition-colors">How it works</a>
-          <a href="#features" className="hover:text-white transition-colors">Features</a>
-          <a href="#pricing" className="hover:text-white transition-colors">Pricing</a>
-        </div>
-
-        <a
-          href={whatsappLink()}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:flex btn-primary text-white text-sm font-medium px-5 py-2.5 rounded-full items-center gap-2"
-        >
-          Get Started
-        </a>
-
-        {/* Mobile menu button */}
-        <button
-          className="md:hidden text-white/60 hover:text-white"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {mobileMenuOpen
-              ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            }
-          </svg>
-        </button>
-      </nav>
-
-      {/* Mobile menu */}
-      {mobileMenuOpen && (
-        <div className="relative z-50 md:hidden glass border-b border-white/05 px-6 py-4 flex flex-col gap-4 text-sm text-white/70">
-          <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">How it works</a>
-          <a href="#features" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">Features</a>
-          <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">Pricing</a>
-          <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn-primary text-white text-center py-2.5 rounded-full font-medium">
-            Get Started
-          </a>
-        </div>
-      )}
+      <BackgroundGlows />
+      <Navbar />
 
       {/* Hero */}
       <section className="relative z-10 flex flex-col items-center text-center px-6 pt-24 pb-20 md:pt-36 md:pb-28">
@@ -223,75 +170,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How it works */}
-      <section id="how-it-works" className="relative z-10 px-6 md:px-16 py-20">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-center text-indigo-400 text-sm font-medium uppercase tracking-widest mb-4">How it works</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
-            Up and running in <span className="gradient-text">3 simple steps</span>
-          </h2>
+      {/* Section teasers — link to dedicated pages */}
+      <section className="relative z-10 px-6 md:px-16 py-20">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                step: "01",
-                icon: "📞",
-                title: "Forward your calls",
-                desc: "Simply dial *21* followed by your RingReply number from your phone. Takes 10 seconds.",
-              },
-              {
-                step: "02",
-                icon: "🤖",
-                title: "AI answers instantly",
-                desc: "Every call is answered within 2 rings. The AI greets callers in English or Hindi and handles the conversation naturally.",
-              },
-              {
-                step: "03",
-                icon: "✅",
-                title: "Bookings confirmed",
-                desc: "Appointments are saved automatically and both you and your customer get an SMS confirmation instantly.",
-              },
-            ].map((step) => (
-              <div key={step.step} className="glass card-hover rounded-2xl p-7">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-3xl">{step.icon}</span>
-                  <span className="text-indigo-400 text-sm font-mono font-bold">{step.step}</span>
-                </div>
-                <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+          {/* How it works teaser */}
+          <a href="/how-it-works" className="glass card-hover rounded-2xl p-8 flex flex-col gap-4 group">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl">📞</span>
+              <span className="text-indigo-400 text-xs font-mono font-bold uppercase tracking-widest">How it works</span>
+            </div>
+            <h2 className="text-xl font-bold">Up and running in 3 steps</h2>
+            <p className="text-white/50 text-sm leading-relaxed flex-1">
+              Forward your calls, let the AI handle them, and watch bookings land in your dashboard — in under 5 minutes.
+            </p>
+            <span className="text-indigo-400 text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+              See how →
+            </span>
+          </a>
 
-      {/* Features */}
-      <section id="features" className="relative z-10 px-6 md:px-16 py-20">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-center text-indigo-400 text-sm font-medium uppercase tracking-widest mb-4">Features</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
-            Everything your <span className="gradient-text">receptionist</span> does
-          </h2>
+          {/* Features teaser */}
+          <a href="/features" className="glass card-hover rounded-2xl p-8 flex flex-col gap-4 group">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl">🤖</span>
+              <span className="text-indigo-400 text-xs font-mono font-bold uppercase tracking-widest">Features</span>
+            </div>
+            <h2 className="text-xl font-bold">Everything your receptionist does</h2>
+            <p className="text-white/50 text-sm leading-relaxed flex-1">
+              24/7 calls, WhatsApp bot, Hindi + English, SMS confirmations, cancellations, reschedules, and more — all in one.
+            </p>
+            <span className="text-indigo-400 text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+              Explore features →
+            </span>
+          </a>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { icon: "🕐", title: "24/7 Availability", desc: "Never miss a call or message — nights, weekends, holidays included." },
-              { icon: "💬", title: "WhatsApp Booking Bot", desc: "Customers text your WhatsApp number and the AI books their appointment automatically." },
-              { icon: "🇮🇳", title: "Hindi + English", desc: "Callers and customers can speak or type in Hindi, English, or mix both freely." },
-              { icon: "📅", title: "Smart Booking", desc: "Checks real-time availability and books slots instantly on both call and WhatsApp." },
-              { icon: "📲", title: "SMS Confirmations", desc: "Auto-sends booking details to both customer and owner after every booking." },
-              { icon: "❌", title: "Cancellations", desc: "Handles cancellation requests on call or WhatsApp without any manual work." },
-              { icon: "🚨", title: "Urgency Detection", desc: "Detects emergencies and directs callers appropriately." },
-              { icon: "🏢", title: "Any Business Type", desc: "Clinics, salons, gyms, hotels — fully customizable for any vertical." },
-              { icon: "📊", title: "Booking Dashboard", desc: "View all appointments from calls and WhatsApp in one clean dashboard." },
-            ].map((f) => (
-              <div key={f.title} className="glass card-hover rounded-xl p-5">
-                <span className="text-2xl mb-3 block">{f.icon}</span>
-                <h3 className="font-semibold mb-1">{f.title}</h3>
-                <p className="text-white/40 text-sm leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
-          </div>
+          {/* Pricing teaser */}
+          <a href="/pricing" className="glass card-hover rounded-2xl p-8 flex flex-col gap-4 group">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl">💳</span>
+              <span className="text-indigo-400 text-xs font-mono font-bold uppercase tracking-widest">Pricing</span>
+            </div>
+            <h2 className="text-xl font-bold">Simple, flat pricing</h2>
+            <p className="text-white/50 text-sm leading-relaxed flex-1">
+              India plan at ₹2,999/mo. US plan at $49/mo. No per-call fees, no hidden charges, cancel anytime.
+            </p>
+            <span className="text-indigo-400 text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+              See plans →
+            </span>
+          </a>
+
         </div>
       </section>
 
@@ -322,90 +249,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section id="pricing" className="relative z-10 px-6 md:px-16 py-20">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-center text-indigo-400 text-sm font-medium uppercase tracking-widest mb-4">Pricing</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-4">
-            Simple, <span className="gradient-text">flat pricing</span>
-          </h2>
-          <p className="text-center text-white/40 mb-16">No per-call fees. No hidden charges. Cancel anytime.</p>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* India Plan */}
-            <div className="glass rounded-2xl p-8 border border-white/08">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-2xl">🇮🇳</span>
-                <span className="text-white/60 text-sm">India Plan</span>
-              </div>
-              <p className="text-4xl font-bold mb-1">₹2,999<span className="text-white/40 text-lg font-normal">/mo</span></p>
-              <p className="text-white/40 text-sm mb-6">Hindi + English support included</p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "Unlimited calls answered",
-                  "WhatsApp booking bot included",
-                  "Hindi & English bilingual AI",
-                  "SMS confirmations",
-                  "Booking dashboard",
-                  "Cancellation handling",
-                ].map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm text-white/70">
-                    <svg className="w-4 h-4 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={whatsappLink("Hi! I want to get the India plan for my business.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-whatsapp flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-full w-full"
-              >
-                Get Started
-              </a>
-            </div>
-
-            {/* US Plan */}
-            <div className="rounded-2xl p-8 border border-indigo-500/40 bg-indigo-500/05 relative overflow-hidden">
-              <div className="absolute top-4 right-4 bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-full">Popular</div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-2xl">🇺🇸</span>
-                <span className="text-white/60 text-sm">US Plan</span>
-              </div>
-              <p className="text-4xl font-bold mb-1">$49<span className="text-white/40 text-lg font-normal">/mo</span></p>
-              <p className="text-white/40 text-sm mb-6">English — works with any US business</p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "Unlimited calls answered",
-                  "WhatsApp booking bot included",
-                  "Natural English AI voice",
-                  "SMS confirmations",
-                  "Booking dashboard",
-                  "Cancellation handling",
-                ].map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm text-white/70">
-                    <svg className="w-4 h-4 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={whatsappLink("Hi! I want to get the US plan for my business.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary flex items-center justify-center gap-2 text-white font-semibold py-3 rounded-full w-full"
-              >
-                Get Started
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="relative z-10 px-6 md:px-16 py-24">
         <div className="max-w-3xl mx-auto text-center glass rounded-3xl p-12 glow-indigo">
@@ -430,24 +273,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative z-10 border-t border-white/05 px-6 md:px-16 py-8">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/30">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-              <span className="text-white font-bold text-xs">R</span>
-            </div>
-            <span className="font-medium text-white/50">RingReply</span>
-          </div>
-          <p>© 2026 RingReply. All rights reserved.</p>
-          <a
-            href={`mailto:hello@ringreply.in`}
-            className="hover:text-white/60 transition-colors"
-          >
-            hello@ringreply.in
-          </a>
-        </div>
-      </footer>
+      <Footer />
 
     </div>
   );
