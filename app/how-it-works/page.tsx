@@ -68,9 +68,7 @@ export default function HowItWorksPage() {
             {steps.map((s, i) => (
               <div
                 key={s.step}
-                className={`glass card-hover rounded-2xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start ${
-                  i % 2 === 1 ? "md:flex-row-reverse" : ""
-                }`}
+                className="glass card-hover rounded-2xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start"
               >
                 <div className="flex-shrink-0 flex flex-col items-center md:items-start gap-3">
                   <span className="text-5xl">{s.icon}</span>
