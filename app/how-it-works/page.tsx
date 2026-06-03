@@ -13,18 +13,18 @@ const steps = [
     step: "01",
     icon: "📞",
     title: "Forward your calls",
-    desc: "Simply dial *21* followed by your RingReply number from your phone. Takes 10 seconds. No app, no hardware — works on any phone plan.",
+    desc: "We set it up for you. After you sign up, we'll send you the exact one-line forwarding code for your carrier (Airtel, Jio, Vi, or any US network). You type it once in your dialer — done in under a minute. No app, no hardware, nothing to install.",
     detail: [
-      "Works with any Indian or US carrier",
-      "Conditional forwarding — only when you're busy or unreachable",
-      "Can be turned on/off anytime from your phone",
+      "Works on Airtel, Jio, Vi, BSNL and any US carrier",
+      "We send you the exact code after signup — nothing to figure out",
+      "Turn it off anytime with one code from your dialer",
     ],
   },
   {
     step: "02",
     icon: "🤖",
     title: "AI answers instantly",
-    desc: "Every call is answered within 2 rings. The AI greets callers in English or Hindi and handles the entire conversation naturally — no scripts, no hold music.",
+    desc: "Every call is answered within 2 rings. The AI greets your customers by your business name, understands what they need — in Hindi or English — and handles the full conversation naturally. No hold music, no missed calls.",
     detail: [
       "Understands natural speech in Hindi, English, or mixed",
       "Checks real-time availability before booking",
@@ -35,7 +35,7 @@ const steps = [
     step: "03",
     icon: "✅",
     title: "Bookings confirmed",
-    desc: "Appointments are saved automatically and both you and your customer get an SMS confirmation instantly. Everything is logged in your dashboard.",
+    desc: "The appointment is saved to your dashboard the moment the call ends. Your customer gets an SMS confirmation. You get one too. Everything is logged — no manual entry, no follow-up needed.",
     detail: [
       "Instant SMS to both owner and customer",
       "Full booking details saved to your dashboard",
