@@ -8,13 +8,100 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── Theme CSS Variables ────────────────────────────── */
+:root {
+  --bg: #0a0a0f;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --card-hover-bg: rgba(255, 255, 255, 0.07);
+  --card-hover-border: rgba(129, 140, 248, 0.4);
+}
+
+[data-theme="light"] {
+  --bg: #f0f4ff;
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(99, 102, 241, 0.18);
+  --border-subtle: rgba(15, 23, 42, 0.07);
+  --card-hover-bg: rgba(255, 255, 255, 0.97);
+  --card-hover-border: rgba(99, 102, 241, 0.35);
+}
+
 body {
-  background: #0a0a0f;
+  background: var(--bg);
   color: #ffffff;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
+/* ── Light mode: text colour overrides ─────────────── */
+[data-theme="light"] body {
+  color: #0f172a;
+}
+
+[data-theme="light"] .text-white {
+  color: #0f172a !important;
+}
+[data-theme="light"] .text-white\/80 {
+  color: rgba(15, 23, 42, 0.8) !important;
+}
+[data-theme="light"] .text-white\/70 {
+  color: rgba(15, 23, 42, 0.7) !important;
+}
+[data-theme="light"] .text-white\/60 {
+  color: rgba(15, 23, 42, 0.6) !important;
+}
+[data-theme="light"] .text-white\/50 {
+  color: rgba(15, 23, 42, 0.55) !important;
+}
+[data-theme="light"] .text-white\/40 {
+  color: rgba(15, 23, 42, 0.5) !important;
+}
+[data-theme="light"] .text-white\/30 {
+  color: rgba(15, 23, 42, 0.4) !important;
+}
+[data-theme="light"] .text-white\/25 {
+  color: rgba(15, 23, 42, 0.35) !important;
+}
+
+/* ── Light mode: border overrides ──────────────────── */
+[data-theme="light"] .border-white\/5,
+[data-theme="light"] .border-white\/05 {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+[data-theme="light"] .border-white\/08 {
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+/* ── Light mode: page background override ──────────── */
+[data-theme="light"] .bg-\[\#0a0a0f\] {
+  background-color: var(--bg) !important;
+}
+
+/* ── Light mode: chat bubble overrides ─────────────── */
+[data-theme="light"] .bg-white\/10 {
+  background-color: rgba(15, 23, 42, 0.07) !important;
+}
+[data-theme="light"] .text-white\/80.bg-white\/10 {
+  color: #0f172a !important;
+}
+
+/* ── Light mode: background glow adjustment ────────── */
+[data-theme="light"] .bg-indigo-600\/10 {
+  opacity: 0.6;
+}
+[data-theme="light"] .bg-purple-600\/10 {
+  opacity: 0.6;
+}
+
+/* ── Light mode: navbar ─────────────────────────────── */
+[data-theme="light"] nav {
+  background: rgba(240, 244, 255, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+/* ── Animations ──────────────────────────────────────── */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
@@ -36,6 +123,7 @@ body {
   100% { transform: scale(2.2); opacity: 0; }
 }
 
+/* ── Utility classes ─────────────────────────────────── */
 .float-animation {
   animation: float 4s ease-in-out infinite;
 }
@@ -50,9 +138,10 @@ body {
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--glass-bg);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border);
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
 
 .card-hover {
@@ -60,8 +149,8 @@ body {
 }
 
 .card-hover:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(129, 140, 248, 0.4);
+  background: var(--card-hover-bg);
+  border-color: var(--card-hover-border);
   transform: translateY(-4px);
 }
 
@@ -91,6 +180,10 @@ body {
 
 .glow-indigo {
   box-shadow: 0 0 60px rgba(99, 102, 241, 0.15);
+}
+
+[data-theme="light"] .glow-indigo {
+  box-shadow: 0 0 60px rgba(99, 102, 241, 0.12);
 }
 
 .fade-in-up {

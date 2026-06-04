@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "./ThemeProvider";
 
 const WHATSAPP_NUMBER = "919319801618";
 const WHATSAPP_MESSAGE = "Hi! I'm interested in RingReply for my business. Can you tell me more?";
@@ -11,8 +12,26 @@ function whatsappLink(msg = WHATSAPP_MESSAGE) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
 
+function SunIcon() {
+  return (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+      <circle cx="12" cy="12" r="5" />
+      <path strokeLinecap="round" d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+    </svg>
+  );
+}
+
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <>
@@ -28,26 +47,48 @@ export default function Navbar() {
           <Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link>
         </div>
 
-        <a
-          href={whatsappLink()}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:flex btn-primary text-white text-sm font-medium px-5 py-2.5 rounded-full items-center gap-2"
-        >
-          Get Started
-        </a>
+        <div className="hidden md:flex items-center gap-3">
+          {/* Theme toggle */}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="w-9 h-9 rounded-full flex items-center justify-center text-white/50 hover:text-white/80 transition-all hover:bg-white/08 border border-white/10"
+          >
+            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+          </button>
 
-        <button
-          className="md:hidden text-white/60 hover:text-white"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {mobileMenuOpen
-              ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            }
-          </svg>
-        </button>
+          <a
+            href={whatsappLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary text-white text-sm font-medium px-5 py-2.5 rounded-full flex items-center gap-2"
+          >
+            Get Started
+          </a>
+        </div>
+
+        <div className="flex md:hidden items-center gap-2">
+          {/* Theme toggle mobile */}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="w-8 h-8 rounded-full flex items-center justify-center text-white/50 hover:text-white/80 transition-all border border-white/10"
+          >
+            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+          </button>
+
+          <button
+            className="text-white/60 hover:text-white"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {mobileMenuOpen
+                ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              }
+            </svg>
+          </button>
+        </div>
       </nav>
 
       {mobileMenuOpen && (

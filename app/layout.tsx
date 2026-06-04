@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import ThemeProvider from "./components/ThemeProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -48,8 +49,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Prevent flash of wrong theme on load */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('rr-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`,
+          }}
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-6RF70QYSFW"
           strategy="afterInteractive"
@@ -63,7 +70,9 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="min-h-screen">{children}</body>
+      <body className="min-h-screen">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
