@@ -64,13 +64,14 @@ export default function Home() {
             Get Started Free
           </a>
           <a
-            href="#how-it-works"
-            className="text-white/60 hover:text-white text-base font-medium flex items-center gap-1 transition-colors"
+            href="/demo"
+            className="flex items-center gap-2 text-white/70 hover:text-white text-base font-medium px-6 py-4 rounded-full border border-white/10 hover:border-white/20 transition-all"
           >
-            See how it works
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
+            <span className="relative flex h-2 w-2">
+              <span className="ping-slow absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+            </span>
+            Try Live Demo
           </a>
         </div>
 

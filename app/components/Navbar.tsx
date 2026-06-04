@@ -45,6 +45,13 @@ export default function Navbar() {
           <Link href="/how-it-works" className="hover:text-white transition-colors">How it works</Link>
           <Link href="/features" className="hover:text-white transition-colors">Features</Link>
           <Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link>
+          <Link href="/demo" className="flex items-center gap-1.5 text-green-400 hover:text-green-300 transition-colors font-medium">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="ping-slow absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400" />
+            </span>
+            Live Demo
+          </Link>
         </div>
 
         <div className="hidden md:flex items-center gap-3">
@@ -96,6 +103,10 @@ export default function Navbar() {
           <Link href="/how-it-works" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">How it works</Link>
           <Link href="/features" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">Features</Link>
           <Link href="/pricing" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">Pricing</Link>
+          <Link href="/demo" onClick={() => setMobileMenuOpen(false)} className="text-green-400 font-medium flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
+            Live Demo
+          </Link>
           <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="btn-primary text-white text-center py-2.5 rounded-full font-medium">
             Get Started
           </a>
