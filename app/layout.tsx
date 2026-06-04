@@ -12,9 +12,9 @@ export const metadata: Metadata = {
     apple: "/logo.png",
     shortcut: "/logo.png",
   },
-  title: "RingReply — AI Receptionist for Your Business",
-  description: "Never miss a call or WhatsApp message again. RingReply answers calls & WhatsApp 24/7, books appointments automatically, and sends confirmations — in English and Hindi.",
-  keywords: "AI receptionist, voice assistant, appointment booking, call answering, Hindi English, business automation",
+  title: "RingReply — AI Receptionist for Small Business India",
+  description: "Never miss a call or WhatsApp message again. RingReply's AI receptionist answers calls 24/7, books appointments automatically, and sends confirmations — in Hindi and English. Perfect for clinics, salons, gyms and hotels in India and the US.",
+  keywords: "AI receptionist India, AI call answering service India, virtual receptionist India, automated appointment booking, WhatsApp booking bot, missed call solution for business, AI receptionist for clinic, AI receptionist for salon, 24/7 call answering service, Hindi English AI assistant, never miss a business call, AI receptionist for small business India, WhatsApp appointment booking bot India, call answering service for salon India, virtual receptionist Hindi English, automated booking dental clinic",
   verification: {
     google: "5ZO3ef7TBLhwr5nBbPOk2iIXVWM2IyYwLexdEp86YCk",
   },

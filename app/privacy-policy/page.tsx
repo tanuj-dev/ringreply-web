@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — RingReply",
-  description: "Read RingReply's Privacy Policy to understand how we collect, use, and protect your data.",
+  description: "Read RingReply's Privacy Policy to understand how we collect, use, and protect your personal data. RingReply is an AI receptionist service for small businesses in India and the US.",
 };
 
 export default function PrivacyPolicyPage() {

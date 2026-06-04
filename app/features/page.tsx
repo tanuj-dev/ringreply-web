@@ -4,8 +4,9 @@ import BackgroundGlows from "../components/BackgroundGlows";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Features — RingReply",
-  description: "Explore every feature of RingReply's AI receptionist — 24/7 call answering, WhatsApp booking bot, Hindi & English support, SMS confirmations, and more.",
+  title: "Features — RingReply AI Receptionist for Small Business",
+  description: "Explore every feature of RingReply — 24/7 AI call answering, WhatsApp booking bot, Hindi and English support, SMS confirmations, cancellation handling, and booking dashboard. AI receptionist for clinics, salons, gyms and hotels in India and US.",
+  keywords: "AI receptionist features, WhatsApp booking bot India, 24/7 call answering India, Hindi English AI receptionist, SMS booking confirmation, automated cancellation handling, virtual receptionist features India, AI booking dashboard",
 };
 
 const features = [

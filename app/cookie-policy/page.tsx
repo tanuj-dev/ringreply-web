@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Cookie Policy — RingReply",
-  description: "Learn how RingReply uses cookies on its website.",
+  description: "Learn how RingReply uses cookies on its website. RingReply is an AI receptionist platform for small businesses in India and the US.",
 };
 
 export default function CookiePolicyPage() {

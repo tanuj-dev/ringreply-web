@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms of Service — RingReply",
-  description: "Read RingReply's Terms of Service before using our AI receptionist platform.",
+  description: "Read RingReply's Terms of Service before using our AI receptionist platform. RingReply provides 24/7 AI call and WhatsApp answering for small businesses in India and the US.",
 };
 
 export default function TermsPage() {

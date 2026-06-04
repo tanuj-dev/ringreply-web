@@ -4,8 +4,9 @@ import BackgroundGlows from "../components/BackgroundGlows";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pricing — RingReply",
-  description: "Simple flat pricing for RingReply's AI receptionist. India plan at ₹2,999/mo and US plan at $49/mo. No per-call fees, no hidden charges.",
+  title: "Pricing — RingReply AI Receptionist India ₹2,999/mo",
+  description: "Simple flat pricing for RingReply's AI receptionist. India plan at ₹2,999/month — cheaper than a human receptionist. US plan at $49/month. No per-call fees, no hidden charges, cancel anytime. Affordable AI receptionist for small business India.",
+  keywords: "AI receptionist price India, affordable virtual receptionist India, AI receptionist 2999 per month, cheap call answering service India, small business AI receptionist cost, virtual receptionist pricing India",
 };
 
 const indiaFeatures = [
