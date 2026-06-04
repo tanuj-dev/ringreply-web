@@ -11,7 +11,7 @@ type CallState = "loading" | "ready" | "calling" | "connected" | "ended" | "erro
 const API = "https://api.ringreply.in";
 const BIZ_ID = "tanuj_dental";
 const TWILIO_NUMBER = "+12394238893";
-const TWILIO_SDK = "https://sdk.twilio.com/js/voice/releases/2.9.0/twilio.js";
+const TWILIO_SDK = "https://api.ringreply.in/static/twilio.min.js";
 
 const SUGGESTIONS = [
   "I want to book a teeth cleaning appointment",
