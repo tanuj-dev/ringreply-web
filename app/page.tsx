@@ -178,7 +178,11 @@ export default function Home() {
           {/* How it works teaser */}
           <a href="/how-it-works" className="glass card-hover rounded-2xl p-8 flex flex-col gap-4 group">
             <div className="flex items-center gap-3">
-              <span className="text-3xl">📞</span>
+              <div className="w-9 h-9 rounded-xl bg-indigo-500/15 flex items-center justify-center text-indigo-400">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
               <span className="text-indigo-400 text-xs font-mono font-bold uppercase tracking-widest">How it works</span>
             </div>
             <h2 className="text-xl font-bold">Up and running in 3 steps</h2>
@@ -193,7 +197,11 @@ export default function Home() {
           {/* Features teaser */}
           <a href="/features" className="glass card-hover rounded-2xl p-8 flex flex-col gap-4 group">
             <div className="flex items-center gap-3">
-              <span className="text-3xl">🤖</span>
+              <div className="w-9 h-9 rounded-xl bg-indigo-500/15 flex items-center justify-center text-indigo-400">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
               <span className="text-indigo-400 text-xs font-mono font-bold uppercase tracking-widest">Features</span>
             </div>
             <h2 className="text-xl font-bold">Everything your receptionist does</h2>
@@ -208,7 +216,11 @@ export default function Home() {
           {/* Pricing teaser */}
           <a href="/pricing" className="glass card-hover rounded-2xl p-8 flex flex-col gap-4 group">
             <div className="flex items-center gap-3">
-              <span className="text-3xl">💳</span>
+              <div className="w-9 h-9 rounded-xl bg-indigo-500/15 flex items-center justify-center text-indigo-400">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+              </div>
               <span className="text-indigo-400 text-xs font-mono font-bold uppercase tracking-widest">Pricing</span>
             </div>
             <h2 className="text-xl font-bold">Simple, flat pricing</h2>
@@ -232,17 +244,45 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { icon: "🦷", label: "Dental Clinics" },
-              { icon: "💇", label: "Salons & Spas" },
-              { icon: "🏋️", label: "Gyms & Fitness" },
-              { icon: "🩺", label: "Medical Clinics" },
-              { icon: "🏨", label: "Hotels" },
-              { icon: "🧘", label: "Yoga Studios" },
-              { icon: "💆", label: "Physiotherapy" },
-              { icon: "🐾", label: "Vet Clinics" },
+              {
+                label: "Dental Clinics",
+                svg: <path strokeLinecap="round" strokeLinejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />,
+              },
+              {
+                label: "Salons & Spas",
+                svg: <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />,
+              },
+              {
+                label: "Gyms & Fitness",
+                svg: <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />,
+              },
+              {
+                label: "Medical Clinics",
+                svg: <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />,
+              },
+              {
+                label: "Hotels",
+                svg: <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />,
+              },
+              {
+                label: "Yoga Studios",
+                svg: <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />,
+              },
+              {
+                label: "Physiotherapy",
+                svg: <><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></>,
+              },
+              {
+                label: "Vet Clinics",
+                svg: <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />,
+              },
             ].map((b) => (
-              <div key={b.label} className="glass card-hover rounded-xl p-5 text-center">
-                <span className="text-3xl block mb-2">{b.icon}</span>
+              <div key={b.label} className="glass card-hover rounded-xl p-5 text-center flex flex-col items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-indigo-500/12 text-indigo-400 flex items-center justify-center">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+                    {b.svg}
+                  </svg>
+                </div>
                 <p className="text-sm text-white/70 font-medium">{b.label}</p>
               </div>
             ))}

@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BackgroundGlows from "../components/BackgroundGlows";
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Features — RingReply AI Receptionist for Small Business",
@@ -9,78 +10,148 @@ export const metadata: Metadata = {
   keywords: "AI receptionist features, WhatsApp booking bot India, 24/7 call answering India, Hindi English AI receptionist, SMS booking confirmation, automated cancellation handling, virtual receptionist features India, AI booking dashboard",
 };
 
-const features = [
+const tagColor: Record<string, string> = {
+  Core: "text-indigo-400 bg-indigo-500/10",
+  Communication: "text-blue-400 bg-blue-500/10",
+  Intelligence: "text-purple-400 bg-purple-500/10",
+  Management: "text-slate-400 bg-slate-500/10",
+};
+
+const iconWrap: Record<string, string> = {
+  Core: "bg-indigo-500/12 text-indigo-400",
+  Communication: "bg-blue-500/12 text-blue-400",
+  Intelligence: "bg-purple-500/12 text-purple-400",
+  Management: "bg-slate-500/12 text-slate-400",
+};
+
+function Icon({ tag, children }: { tag: string; children: ReactNode }) {
+  return (
+    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${iconWrap[tag]}`}>
+      {children}
+    </div>
+  );
+}
+
+const features: { tag: string; title: string; desc: string; svg: ReactNode }[] = [
   {
-    icon: "🕐",
+    tag: "Core",
     title: "24/7 Availability",
     desc: "Never miss a call or message — nights, weekends, holidays included. The AI is always on so you never have to be.",
-    tag: "Core",
+    svg: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+        <circle cx="12" cy="12" r="10" /><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" />
+      </svg>
+    ),
   },
   {
-    icon: "💬",
+    tag: "Core",
     title: "WhatsApp Booking Bot",
     desc: "Customers text your WhatsApp number and the AI books their appointment automatically — no call needed.",
-    tag: "Core",
+    svg: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+      </svg>
+    ),
   },
   {
-    icon: "🇮🇳",
+    tag: "Core",
     title: "Hindi + English",
     desc: "Callers and customers can speak or type in Hindi, English, or mix both freely. The AI adapts to each person.",
-    tag: "Core",
+    svg: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+      </svg>
+    ),
   },
   {
-    icon: "📅",
+    tag: "Core",
     title: "Smart Booking",
     desc: "Checks real-time availability and books slots instantly on both call and WhatsApp — no double-bookings.",
-    tag: "Core",
+    svg: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+    ),
   },
   {
-    icon: "📲",
+    tag: "Communication",
     title: "SMS Confirmations",
     desc: "Auto-sends booking details to both customer and owner after every booking. No manual follow-up needed.",
-    tag: "Communication",
+    svg: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+      </svg>
+    ),
   },
   {
-    icon: "❌",
+    tag: "Communication",
     title: "Cancellations",
     desc: "Handles cancellation requests on call or WhatsApp and frees up the slot automatically.",
-    tag: "Communication",
+    svg: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
   },
   {
-    icon: "🔄",
+    tag: "Communication",
     title: "Reschedule Flow",
     desc: "Callers can request a reschedule. The AI cancels the old slot and books a new one in the same conversation.",
-    tag: "Communication",
+    svg: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+      </svg>
+    ),
   },
   {
-    icon: "🚨",
+    tag: "Intelligence",
     title: "Urgency Detection",
     desc: "Detects emergencies and directs callers to the appropriate contact or action — not just another booking.",
-    tag: "Intelligence",
+    svg: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+      </svg>
+    ),
   },
   {
-    icon: "🏢",
+    tag: "Intelligence",
     title: "Any Business Type",
     desc: "Clinics, salons, gyms, hotels — fully customizable name, services, hours, and language per business.",
-    tag: "Intelligence",
+    svg: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      </svg>
+    ),
   },
   {
-    icon: "📊",
+    tag: "Management",
     title: "Booking Dashboard",
     desc: "View all appointments from calls and WhatsApp in one clean admin dashboard. Manage, confirm, or cancel manually.",
-    tag: "Management",
+    svg: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      </svg>
+    ),
   },
   {
-    icon: "📅",
+    tag: "Management",
     title: "Schedule Manager",
     desc: "Set your open hours, blocked days, and service durations. The AI respects your calendar automatically.",
-    tag: "Management",
+    svg: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+    ),
   },
   {
-    icon: "🔊",
+    tag: "Management",
     title: "Call Mode Settings",
     desc: "Configure voice, language preference, greeting message, and response style per business.",
-    tag: "Management",
+    svg: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+      </svg>
+    ),
   },
 ];
 
@@ -106,7 +177,7 @@ export default function FeaturesPage() {
             </p>
           </div>
 
-          {/* Tag pills — visual grouping only, no JS filter needed */}
+          {/* Tag pills */}
           <div className="flex flex-wrap justify-center gap-2 mb-12">
             {tags.map((tag) => (
               <span
@@ -122,8 +193,8 @@ export default function FeaturesPage() {
             {features.map((f) => (
               <div key={f.title} className="glass card-hover rounded-xl p-6 flex flex-col gap-3">
                 <div className="flex items-start justify-between">
-                  <span className="text-3xl">{f.icon}</span>
-                  <span className="text-xs text-indigo-400 font-medium bg-indigo-500/10 px-2.5 py-1 rounded-full">
+                  <Icon tag={f.tag}>{f.svg}</Icon>
+                  <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${tagColor[f.tag]}`}>
                     {f.tag}
                   </span>
                 </div>
