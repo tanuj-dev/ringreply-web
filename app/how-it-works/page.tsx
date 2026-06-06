@@ -9,10 +9,40 @@ export const metadata: Metadata = {
   keywords: "how AI receptionist works India, call forwarding AI, automated appointment booking India, virtual receptionist setup, AI call answering India, WhatsApp booking bot setup, missed call solution India",
 };
 
+function IconForward() {
+  return (
+    <div className="w-14 h-14 rounded-2xl bg-indigo-500/15 border border-indigo-500/25 flex items-center justify-center">
+      <svg className="w-7 h-7 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+      </svg>
+    </div>
+  );
+}
+
+function IconAI() {
+  return (
+    <div className="w-14 h-14 rounded-2xl bg-purple-500/15 border border-purple-500/25 flex items-center justify-center">
+      <svg className="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    </div>
+  );
+}
+
+function IconConfirmed() {
+  return (
+    <div className="w-14 h-14 rounded-2xl bg-green-500/15 border border-green-500/25 flex items-center justify-center">
+      <svg className="w-7 h-7 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    </div>
+  );
+}
+
 const steps = [
   {
     step: "01",
-    icon: "📞",
+    Icon: IconForward,
     title: "Forward your calls",
     desc: "We set it up for you. After you sign up, we'll send you the exact one-line forwarding code for your carrier (Airtel, Jio, Vi, or any US network). You type it once in your dialer — done in under a minute. No app, no hardware, nothing to install.",
     detail: [
@@ -23,7 +53,7 @@ const steps = [
   },
   {
     step: "02",
-    icon: "🤖",
+    Icon: IconAI,
     title: "AI answers instantly",
     desc: "Every call is answered within 2 rings. The AI greets your customers by your business name, understands what they need — in Hindi or English — and handles the full conversation naturally. No hold music, no missed calls.",
     detail: [
@@ -34,7 +64,7 @@ const steps = [
   },
   {
     step: "03",
-    icon: "✅",
+    Icon: IconConfirmed,
     title: "Bookings confirmed",
     desc: "The appointment is saved to your dashboard the moment the call ends. Your customer gets an SMS confirmation. You get one too. Everything is logged — no manual entry, no follow-up needed.",
     detail: [
@@ -72,7 +102,7 @@ export default function HowItWorksPage() {
                 className="glass card-hover rounded-2xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start"
               >
                 <div className="flex-shrink-0 flex flex-col items-center md:items-start gap-3">
-                  <span className="text-5xl">{s.icon}</span>
+                  <s.Icon />
                   <span className="text-indigo-400 text-sm font-mono font-bold">{s.step}</span>
                 </div>
                 <div className="flex-1">
