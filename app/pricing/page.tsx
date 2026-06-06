@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BackgroundGlows from "../components/BackgroundGlows";
+import PayButton from "../components/PayButton";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,9 +10,19 @@ export const metadata: Metadata = {
   keywords: "AI receptionist price India, affordable virtual receptionist India, AI receptionist 2999 per month, cheap call answering service India, small business AI receptionist cost, virtual receptionist pricing India",
 };
 
-const plans = [
+const plans: {
+  name: string;
+  planId: "starter" | "growth" | "pro";
+  price: string;
+  period: string;
+  annual: string;
+  desc: string;
+  popular: boolean;
+  features: string[];
+}[] = [
   {
     name: "Starter",
+    planId: "starter",
     price: "₹2,999",
     period: "/mo",
     annual: "₹29,990/yr — 2 months free",
@@ -27,11 +38,10 @@ const plans = [
       "Booking dashboard",
       "Free setup by our team",
     ],
-    cta: "Start Free Trial",
-    waMsg: "Hi! I want to get started with the RingReply Starter plan.",
   },
   {
     name: "Growth",
+    planId: "growth",
     price: "₹4,999",
     period: "/mo",
     annual: "₹49,990/yr — 2 months free",
@@ -48,11 +58,10 @@ const plans = [
       "Priority support",
       "Free setup by our team",
     ],
-    cta: "Start Free Trial",
-    waMsg: "Hi! I want to get started with the RingReply Growth plan.",
   },
   {
     name: "Pro",
+    planId: "pro",
     price: "₹6,999",
     period: "/mo",
     annual: "₹69,990/yr — 2 months free",
@@ -70,8 +79,6 @@ const plans = [
       "Custom AI script for your business",
       "Free setup by our team",
     ],
-    cta: "Start Free Trial",
-    waMsg: "Hi! I want to get started with the RingReply Pro plan.",
   },
 ];
 
@@ -211,20 +218,11 @@ export default function PricingPage() {
                 </ul>
 
                 {/* CTA */}
-                <a
-                  href={WA_BASE + encodeURIComponent(plan.waMsg)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex items-center justify-center gap-2 font-semibold py-4 rounded-xl w-full text-sm transition-all hover:scale-[1.02] active:scale-[0.98]
-                    ${plan.popular
-                      ? "btn-primary text-white shadow-lg shadow-indigo-500/25"
-                      : "border border-white/15 text-white/70 hover:text-white hover:border-white/30 bg-white/03 hover:bg-white/06"
-                    }
-                  `}
-                >
-                  {plan.popular && <WhatsAppIcon />}
-                  {plan.cta}
-                </a>
+                <PayButton
+                  plan={plan.planId}
+                  label="Pay Now — Start Today"
+                  primary={plan.popular}
+                />
               </div>
             ))}
           </div>
