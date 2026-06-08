@@ -18,9 +18,9 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: https:",
       "font-src 'self'",
-      "connect-src 'self' https://api.ringreply.in https://checkout.razorpay.com",
+      "connect-src 'self' https://api.ringreply.in https://checkout.razorpay.com https://*.twilio.com wss://*.twilio.com",
       "frame-src https://api.razorpay.com https://checkout.razorpay.com",
-      "media-src 'self'",
+      "media-src 'self' mediastream:",
     ].join("; "),
   },
 ];
