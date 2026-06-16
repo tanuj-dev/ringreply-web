@@ -87,6 +87,9 @@ export default function Navbar() {
           <button
             className="text-white/60 hover:text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {mobileMenuOpen
@@ -99,7 +102,7 @@ export default function Navbar() {
       </nav>
 
       {mobileMenuOpen && (
-        <div className="relative z-50 md:hidden glass border-b border-white/05 px-6 py-4 flex flex-col gap-4 text-sm text-white/70">
+        <div id="mobile-menu" className="relative z-50 md:hidden glass border-b border-white/05 px-6 py-4 flex flex-col gap-4 text-sm text-white/70">
           <Link href="/how-it-works" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">How it works</Link>
           <Link href="/features" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">Features</Link>
           <Link href="/pricing" onClick={() => setMobileMenuOpen(false)} className="hover:text-white">Pricing</Link>

@@ -19,7 +19,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative z-10 flex flex-col items-center text-center px-6 pt-24 pb-20 md:pt-36 md:pb-28">
+      <section id="main-content" className="relative z-10 flex flex-col items-center text-center px-6 pt-24 pb-20 md:pt-36 md:pb-28">
 
         {/* Live badge */}
         <div className="flex items-center gap-2 glass rounded-full px-4 py-1.5 mb-8 text-sm text-white/70">

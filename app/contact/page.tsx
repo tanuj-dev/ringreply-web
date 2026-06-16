@@ -17,7 +17,7 @@ export default function ContactPage() {
       <BackgroundGlows />
       <Navbar />
 
-      <main className="relative z-10 px-6 md:px-16 py-24">
+      <main id="main-content" className="relative z-10 px-6 md:px-16 py-24">
         <div className="max-w-3xl mx-auto">
 
           <div className="text-center mb-16">

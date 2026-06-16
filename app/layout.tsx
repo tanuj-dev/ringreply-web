@@ -71,6 +71,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-screen">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

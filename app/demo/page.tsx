@@ -39,6 +39,7 @@ export default function DemoPage() {
   const deviceRef = useRef<any>(null);
   const callRef = useRef<any>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const tokenRetryRef = useRef(0);
 
   // Rotate suggestion hints
   useEffect(() => {
@@ -74,17 +75,33 @@ export default function DemoPage() {
       const { token } = await res.json();
 
       const { Device } = (window as any).Twilio;
-      const device = new Device(token, { codecPreferences: ["opus", "pcmu"], logLevel: 0 });
+      // logLevel "error" — the SDK's numeric 0 means TRACE (logs everything, incl. the token).
+      const device = new Device(token, { codecPreferences: ["opus", "pcmu"], logLevel: "error" });
 
       device.on("registered", () => {
         setCallState("ready");
         setStatusMsg("Ready to call");
         deviceRef.current = device;
+        tokenRetryRef.current = 0; // healthy connection — reset retry budget
       });
 
       device.on("error", (err: any) => {
+        // Log full detail for debugging; never surface raw SDK errors to the user.
+        console.error("Twilio device error:", err?.code, err?.message);
+
+        // 201xx = access-token problems (expired / invalid). Silently refresh once.
+        const tokenIssue = [20101, 20102, 20103, 20104].includes(err?.code);
+        if (tokenIssue && tokenRetryRef.current < 1) {
+          tokenRetryRef.current += 1;
+          setCallState("loading");
+          setStatusMsg("Reconnecting…");
+          try { device.destroy?.(); } catch {}
+          initDevice();
+          return;
+        }
+
         setCallState("error");
-        setStatusMsg("Device error — " + err.message);
+        setStatusMsg("Demo is temporarily unavailable. Please try again in a moment.");
       });
 
       device.register();
@@ -119,13 +136,15 @@ export default function DemoPage() {
       });
 
       call.on("error", (e: any) => {
+        console.error("Twilio call error:", e?.code, e?.message);
         setCallState("error");
-        setStatusMsg("Call error: " + e.message);
+        setStatusMsg("The call dropped unexpectedly. Please try again.");
         if (timerRef.current) clearInterval(timerRef.current);
       });
     } catch (e: any) {
+      console.error("Twilio connect failed:", e?.message);
       setCallState("error");
-      setStatusMsg("Could not start call: " + e.message);
+      setStatusMsg("Could not start the call. Please try again.");
     }
   }
 
@@ -161,7 +180,7 @@ export default function DemoPage() {
       <BackgroundGlows />
       <Navbar />
 
-      <main className="relative z-10 px-6 md:px-16 py-16 md:py-20">
+      <main id="main-content" className="relative z-10 px-6 md:px-16 py-16 md:py-20">
         <div className="max-w-5xl mx-auto">
 
           {/* Header */}

@@ -14,7 +14,7 @@ export default function PaymentSuccessPage() {
       <BackgroundGlows />
       <Navbar />
 
-      <main className="relative z-10 flex items-center justify-center px-6 py-32">
+      <main id="main-content" className="relative z-10 flex items-center justify-center px-6 py-32">
         <div className="max-w-lg w-full glass glow-indigo rounded-3xl p-12 text-center">
 
           {/* Success icon */}
