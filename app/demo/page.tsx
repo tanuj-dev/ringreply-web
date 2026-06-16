@@ -200,6 +200,9 @@ export default function DemoPage() {
                 <p className="text-white/50 text-sm leading-relaxed">
                   Call the AI receptionist directly from your browser — no app, no phone needed. It answers in Hindi or English, books appointments, handles cancellations, and reschedules slots. This is exactly what your customers will hear when they call your business.
                 </p>
+                <p className="text-white/30 text-xs leading-relaxed mt-2">
+                  This is a demo only — in your actual setup, the AI will be linked to your business phone number so your customers call you directly.
+                </p>
                 <div className="flex flex-wrap gap-2 mt-3 mb-1">
                   {["Books appointments", "Handles cancellations", "Hindi + English", "Instant response"].map(tag => (
                     <span key={tag} className="text-xs bg-indigo-500/10 text-indigo-300/70 border border-indigo-500/20 px-2.5 py-1 rounded-full">{tag}</span>
