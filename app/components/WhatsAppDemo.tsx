@@ -76,7 +76,7 @@ const SCENARIOS: Scenario[] = [
   },
 ];
 
-export default function WhatsAppDemo() {
+export default function WhatsAppDemo({ bare = false }: { bare?: boolean }) {
   const [activeTab, setActiveTab] = useState(0);
   const [visibleCount, setVisibleCount] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -121,7 +121,7 @@ export default function WhatsAppDemo() {
   const messages = scenario.messages.slice(0, visibleCount);
 
   return (
-    <div className="glass rounded-3xl overflow-hidden border border-white/8">
+    <div className={bare ? "overflow-hidden" : "glass rounded-3xl overflow-hidden border border-white/8"}>
       {/* Tabs */}
       <div className="flex border-b border-white/8">
         {SCENARIOS.map((s, i) => (
