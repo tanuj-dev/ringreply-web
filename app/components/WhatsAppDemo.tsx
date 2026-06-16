@@ -8,9 +8,28 @@ type Message = {
   delay: number; // ms after previous message
 };
 
+const ICONS = {
+  clinic: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-5 h-5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+    </svg>
+  ),
+  salon: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-5 h-5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
+    </svg>
+  ),
+  college: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="w-5 h-5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+    </svg>
+  ),
+};
+
 type Scenario = {
   label: string;
-  emoji: string;
+  iconKey: keyof typeof ICONS;
   business: string;
   messages: Message[];
 };
@@ -18,7 +37,7 @@ type Scenario = {
 const SCENARIOS: Scenario[] = [
   {
     label: "Clinic",
-    emoji: "🏥",
+    iconKey: "clinic",
     business: "Dr. Sharma's Clinic",
     messages: [
       { from: "user", text: "Hello, mujhe appointment chahiye", delay: 0 },
@@ -31,7 +50,7 @@ const SCENARIOS: Scenario[] = [
   },
   {
     label: "Salon",
-    emoji: "💈",
+    iconKey: "salon",
     business: "Style Hub Salon",
     messages: [
       { from: "user", text: "Is Saturday free hai hair cut ke liye?", delay: 0 },
@@ -44,7 +63,7 @@ const SCENARIOS: Scenario[] = [
   },
   {
     label: "College",
-    emoji: "🎓",
+    iconKey: "college",
     business: "Apex Institute",
     messages: [
       { from: "user", text: "BCA ki fees kitni hai?", delay: 0 },
@@ -115,7 +134,7 @@ export default function WhatsAppDemo() {
                 : "text-white/40 hover:text-white/70"
               }`}
           >
-            <span>{s.emoji}</span>
+            {ICONS[s.iconKey]}
             <span>{s.label}</span>
           </button>
         ))}
@@ -126,8 +145,8 @@ export default function WhatsAppDemo() {
         <div className="rounded-2xl overflow-hidden bg-[#0a0a0a] border border-white/8 max-w-sm mx-auto">
           {/* WhatsApp header */}
           <div className="bg-[#075e54] px-4 py-3 flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-green-400/20 flex items-center justify-center text-lg">
-              {scenario.emoji}
+            <div className="w-9 h-9 rounded-full bg-green-400/20 flex items-center justify-center text-white/80">
+              {ICONS[scenario.iconKey]}
             </div>
             <div className="flex-1">
               <p className="text-white text-sm font-semibold leading-tight">{scenario.business}</p>
