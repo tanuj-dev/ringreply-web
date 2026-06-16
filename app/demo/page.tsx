@@ -195,6 +195,17 @@ export default function DemoPage() {
                 <span className="text-sm font-semibold text-white/80">Voice AI Demo</span>
                 <span className="ml-auto text-xs text-white/30">Needs microphone</span>
               </div>
+              {/* Description */}
+              <div className="px-6 pt-5 pb-0">
+                <p className="text-white/50 text-sm leading-relaxed">
+                  Call the AI receptionist directly from your browser — no app, no phone needed. It answers in Hindi or English, books appointments, handles cancellations, and reschedules slots. This is exactly what your customers will hear when they call your business.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-3 mb-1">
+                  {["Books appointments", "Handles cancellations", "Hindi + English", "Instant response"].map(tag => (
+                    <span key={tag} className="text-xs bg-indigo-500/10 text-indigo-300/70 border border-indigo-500/20 px-2.5 py-1 rounded-full">{tag}</span>
+                  ))}
+                </div>
+              </div>
 
               <div className="p-6 flex flex-col items-center text-center">
                 {/* Avatar */}
@@ -270,6 +281,17 @@ export default function DemoPage() {
                 </svg>
                 <span className="text-sm font-semibold text-white/80">WhatsApp Bot Demo</span>
                 <span className="ml-auto text-xs text-white/30">No mic needed</span>
+              </div>
+              {/* Description */}
+              <div className="px-6 pt-5 pb-0">
+                <p className="text-white/50 text-sm leading-relaxed">
+                  See how RingReply handles WhatsApp enquiries automatically — 24/7, even when you are asleep or busy. Switch between Clinic, Salon, and College to see real conversations the AI has with customers. No human involved.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-3 mb-1">
+                  {["Auto-replies 24/7", "Booking via WhatsApp", "Clinic · Salon · College", "Zero wait time"].map(tag => (
+                    <span key={tag} className="text-xs bg-green-500/10 text-green-300/70 border border-green-500/20 px-2.5 py-1 rounded-full">{tag}</span>
+                  ))}
+                </div>
               </div>
               <WhatsAppDemo bare />
               <div className="text-center py-4 border-t border-white/8 shrink-0">
