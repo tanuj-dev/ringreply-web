@@ -4,6 +4,7 @@ import BackgroundGlows from "../components/BackgroundGlows";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/cookie-policy" },
   title: "Cookie Policy — RingReply",
   description: "Learn how RingReply uses cookies on its website. RingReply is an AI receptionist platform for small businesses in India and the US.",
 };

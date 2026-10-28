@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/features" },
   title: "Features — RingReply AI Receptionist for Small Business",
   description: "Explore every feature of RingReply — 24/7 AI call answering, WhatsApp booking bot, Hindi and English support, SMS confirmations, cancellation handling, and booking dashboard. AI receptionist for clinics, salons, gyms and hotels in India and US.",
   keywords: "AI receptionist features, WhatsApp booking bot India, 24/7 call answering India, Hindi English AI receptionist, SMS booking confirmation, automated cancellation handling, virtual receptionist features India, AI booking dashboard",

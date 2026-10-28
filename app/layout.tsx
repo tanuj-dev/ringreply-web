@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import ThemeProvider from "./components/ThemeProvider";
 import "./globals.css";
+import { SITE_URL, siteJsonLd } from "./seo";
 
 export const metadata: Metadata = {
+  // All pages are served from www (the apex redirects there)
+  metadataBase: new URL(SITE_URL),
+  alternates: { canonical: "/" },
   icons: {
     icon: [
       { url: "/logo.png", type: "image/png", sizes: "512x512" },
@@ -22,13 +26,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "RingReply — AI Receptionist for Your Business",
     description: "Never miss a call again. RingReply answers your calls 24/7, books appointments, and sends confirmations — in English and Hindi.",
-    url: "https://ringreply.in",
+    url: "/",
     siteName: "RingReply",
     locale: "en_IN",
     type: "website",
     images: [
       {
-        url: "https://ringreply.in/og-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "RingReply — AI Receptionist for Your Business",
@@ -39,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "RingReply — AI Receptionist for Your Business",
     description: "Never miss a call again. RingReply answers calls 24/7, books appointments in English & Hindi.",
-    images: ["https://ringreply.in/og-image.png"],
+    images: ["/og-image.png"],
   },
 };
 
@@ -71,6 +75,10 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-screen">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd).replace(/</g, "\\u003c") }}
+        />
         <a href="#main-content" className="skip-link">Skip to content</a>
         <ThemeProvider>{children}</ThemeProvider>
       </body>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { solutions } from "../solutions/data";
 
 export default function Footer() {
   return (
@@ -21,6 +22,7 @@ export default function Footer() {
             <Link href="/how-it-works" className="hover:text-white/70 transition-colors">How it works</Link>
             <Link href="/features" className="hover:text-white/70 transition-colors">Features</Link>
             <Link href="/pricing" className="hover:text-white/70 transition-colors">Pricing</Link>
+            <Link href="/solutions" className="hover:text-white/70 transition-colors">Solutions</Link>
             <Link href="/contact" className="hover:text-white/70 transition-colors">Contact</Link>
           </div>
 
@@ -38,6 +40,15 @@ export default function Footer() {
               +91 9319801618
             </a>
           </div>
+        </div>
+
+        {/* Industry pages */}
+        <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-white/30 mb-8">
+          {solutions.map((s) => (
+            <Link key={s.slug} href={`/solutions/${s.slug}`} className="hover:text-white/60 transition-colors">
+              {s.navLabel}
+            </Link>
+          ))}
         </div>
 
         {/* Divider */}

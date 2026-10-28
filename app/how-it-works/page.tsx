@@ -4,6 +4,7 @@ import BackgroundGlows from "../components/BackgroundGlows";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/how-it-works" },
   title: "How It Works — RingReply AI Receptionist India",
   description: "See how RingReply's AI receptionist answers calls and WhatsApp messages to book appointments for your business in 3 simple steps. Works on Airtel, Jio, Vi — no app needed. Perfect for clinics, salons and gyms in India.",
   keywords: "how AI receptionist works India, call forwarding AI, automated appointment booking India, virtual receptionist setup, AI call answering India, WhatsApp booking bot setup, missed call solution India",

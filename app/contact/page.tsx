@@ -4,6 +4,7 @@ import BackgroundGlows from "../components/BackgroundGlows";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact Us — RingReply AI Receptionist India",
   description: "Get in touch with RingReply. Contact us on WhatsApp at +91 9319801618 or email hello@ringreply.in. We help small businesses in India and the US set up their AI receptionist in under 5 minutes.",
   keywords: "contact RingReply, AI receptionist support India, virtual receptionist contact, RingReply WhatsApp, RingReply phone number",
